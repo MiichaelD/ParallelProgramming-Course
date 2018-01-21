@@ -46,7 +46,7 @@ package object scalashop {
     val maxx = clamp(x + radius, 0, lastColumn)
     val miny = clamp(y - radius, 0, lastRow)
     val maxy = clamp(y + radius, 0, lastRow)
-    val totalPixels = (maxx - minx) * (maxy - miny)
+    val totalPixels = (1 + maxx - minx) * (1 + maxy - miny)
     var (r, g, b, a) = (0, 0, 0, 0)
 
     while (minx <= maxx) {
