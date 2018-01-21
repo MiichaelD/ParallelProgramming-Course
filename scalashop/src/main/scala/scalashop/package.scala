@@ -52,10 +52,11 @@ package object scalashop {
     while (minx <= maxx) {
       var aux = miny
       while (aux <= maxy) {
-        r += red(src.apply(minx, aux))
-        g += green(src.apply(minx, aux))
-        b += blue(src.apply(minx, aux))
-        a += alpha(src.apply(minx, aux))
+        val pixel = src.apply(minx, aux)
+        r += red(pixel)
+        g += green(pixel)
+        b += blue(pixel)
+        a += alpha(pixel)
         aux += 1
       }
       minx += 1
@@ -66,7 +67,7 @@ package object scalashop {
     b /= totalPixels
     a /= totalPixels
 
-    src.apply(x,y)
+    rgba(r, g, b, a)
   }
 
 }
