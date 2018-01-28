@@ -1,11 +1,8 @@
 package reductions
 
-import java.util.concurrent._
-import scala.collection._
 import org.scalatest.FunSuite
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-import common._
 
 import ParallelParenthesesBalancing._
 
@@ -44,6 +41,4 @@ class ParallelParenthesesBalancingSuite extends FunSuite {
     check("(.", false)
     check(").", false)
   }
-
-
 }
