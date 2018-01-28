@@ -20,7 +20,7 @@ object ParallelCountChangeRunner {
     val amount = 250 // 4
     val coins = List(1, 2, 5, 10, 20, 50) // List(1, 2, 3)
     val seqtime = standardConfig measure {
-      seqResult = ParallelCountChange.countChange(amount, coins)
+      seqResult = ParallelCountChange.countChangeRec(amount, coins)
     }
     println(s"sequential result = $seqResult")
     println(s"sequential count time: $seqtime ms")
@@ -108,6 +108,7 @@ object ParallelCountChange {
 
   /** Threshold heuristic based on the starting money and the initial list of coins. */
   def combinedThreshold(startingMoney: Int, allCoins: List[Int]): Threshold = {
-    (money, coins) => moneyThreshold(startingMoney)(money, coins) && totalCoinsThreshold(allCoins.length)(money, coins)
+    //(money, coins) => moneyThreshold(startingMoney)(money, coins) && totalCoinsThreshold(allCoins.length)(money, coins)
+    (money, coins) => money * coins.length <= (startingMoney * allCoins.length / 2)
   }
 }
