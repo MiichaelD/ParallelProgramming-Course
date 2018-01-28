@@ -67,6 +67,14 @@ object ParallelCountChange {
 
 
   def countChange(money: Int, coins: List[Int]): Int = {
+    if (money < 0) {
+      return 0
+    }
+
+    if (money == 0) {
+      return 1
+    }
+
     var memo = Array.fill(money + 1)(0)
     memo.update(0, 1)
 
