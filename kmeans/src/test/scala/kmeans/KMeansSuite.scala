@@ -42,7 +42,7 @@ class KMeansSuite extends FunSuite {
     val points: GenSeq[Point] = IndexedSeq(p1, p2, p3, p4)
     val mean = new Point(0, 0, 0)
     val means: GenSeq[Point] = IndexedSeq(mean)
-    val expected = GenMap((mean, GenSeq(p1, p2, p3, p4)))
+    val expected = GenMap((mean, points))
     checkClassify(points, means, expected)
   }
 
